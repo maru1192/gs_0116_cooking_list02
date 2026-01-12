@@ -1,7 +1,8 @@
 # ①課題名：みんなのズボラメシ
 !["レシピ一覧"](./img/recipe_list2.png)
-!["レシピ詳細ページ"](./img/recipe_detail.png)
 !["レシピ更新ページ"](./img/mypost_recipe.png)
+!["レシピ投稿ページ"](./img/post_page.png)
+!["レシピ詳細ページ"](./img/recipe_detail.png)
 !["お気に入りレシピ一覧ページ"](./img/favorite_list.png)
 
 ## ②課題内容（どんな作品か）
