@@ -1,0 +1,520 @@
+/* みんなのズボラ飯 - 投稿フォームCSS */
+/* スマホファースト設計 */
+
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --border-color: #dee2e6;
+    --success-color: #51CF66;
+    --warning-color: #FFA94D;
+    --radius: 8px;
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.button_area li {
+    list-style: none;
+
+}
+
+.button_area a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+    padding-bottom: 80px; /* 送信ボタン分の余白 */
+}
+
+/* ========================================
+   ヘッダー
+======================================== */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-l);
+    padding: var(--spacing-l) 0;
+}
+
+.header__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 var(--spacing-s) 0;
+    color: var(--primary-color);
+}
+
+.header__subtitle {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* ========================================
+   セクション
+======================================== */
+.section {
+    background: white;
+    border-radius: var(--radius);
+    padding: var(--spacing-l);
+    margin-bottom: var(--spacing-m);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.section--important {
+    border: 2px solid var(--warning-color);
+}
+
+.section__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 var(--spacing-m) 0;
+}
+
+/* ========================================
+   ラベル
+======================================== */
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-s);
+    font-size: 15px;
+}
+
+.required {
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: var(--spacing-xs);
+}
+
+.optional {
+    color: #6c757d;
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: var(--spacing-xs);
+}
+
+.help-text {
+    font-size: 13px;
+    color: #6c757d;
+    margin: var(--spacing-s) 0 0 0;
+}
+
+/* ========================================
+   投稿タイプ選択
+======================================== */
+.type-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-m);
+}
+
+.type-btn input[type="radio"] {
+    display: none;
+}
+
+.type-btn__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-l);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.type-btn input[type="radio"]:checked + .type-btn__content {
+    border-color: var(--primary-color);
+    background: #fff5f5;
+}
+
+.type-btn__icon {
+    font-size: 40px;
+    margin-bottom: var(--spacing-s);
+}
+
+.type-btn__label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs);
+}
+
+.type-btn__desc {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+/* ========================================
+   入力フィールド
+======================================== */
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ========================================
+   ボタングループ（ラジオボタン）
+======================================== */
+.button-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: var(--spacing-s);
+}
+
+.button-group--vertical {
+    grid-template-columns: 1fr;
+}
+
+.btn-option {
+    position: relative;
+    display: block;
+}
+
+.btn-option input[type="radio"] {
+    display: none;
+}
+
+.btn-option span {
+    display: block;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    font-size: 14px;
+}
+
+.btn-option input[type="radio"]:checked + span {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-option--large span {
+    padding: var(--spacing-m);
+    text-align: left;
+}
+
+/* ========================================
+   チェックボックスグループ
+======================================== */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--spacing-s);
+}
+
+.checkbox-option {
+    position: relative;
+    display: block;
+}
+
+.checkbox-option input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-option span {
+    display: block;
+    padding: 10px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.checkbox-option input[type="checkbox"]:checked + span {
+    border-color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+}
+
+/* ========================================
+   ラジオグループ（派閥用）
+======================================== */
+.radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--spacing-s);
+}
+
+.radio-option {
+    position: relative;
+    display: block;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-option span {
+    display: block;
+    padding: 10px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.radio-option input[type="radio"]:checked + span {
+    border-color: var(--warning-color);
+    background: var(--warning-color);
+    color: white;
+    font-weight: bold;
+}
+
+/* ========================================
+   画像アップロード
+======================================== */
+.image-upload__input {
+    display: none;
+}
+
+.image-upload__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #f8f9fa;
+}
+
+.image-upload__label:hover {
+    border-color: var(--primary-color);
+    background: #fff5f5;
+}
+
+.image-upload__icon {
+    font-size: 40px;
+    margin-bottom: var(--spacing-s);
+}
+
+.image-upload__text {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.image-preview {
+    margin-top: var(--spacing-m);
+    position: relative;
+}
+
+.image-preview__img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.image-preview__remove {
+    position: absolute;
+    top: var(--spacing-s);
+    right: var(--spacing-s);
+    padding: var(--spacing-s) var(--spacing-m);
+    background: rgba(255, 107, 107, 0.9);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ========================================
+   手順入力
+======================================== */
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.step-item .input {
+    flex: 1;
+}
+
+/* ========================================
+   食品衛生チェック
+======================================== */
+.safety-check {
+    background: #fff9f0;
+    padding: var(--spacing-l);
+    border-radius: var(--radius);
+}
+
+.safety-check__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 var(--spacing-m) 0;
+    color: var(--warning-color);
+}
+
+.safety-check__list {
+    margin: 0 0 var(--spacing-l) var(--spacing-l);
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.safety-check__list li {
+    margin-bottom: var(--spacing-s);
+}
+
+.safety-check__agree {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.safety-check__agree input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* ========================================
+   送信ボタン
+======================================== */
+.submit-area {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--spacing-m);
+    z-index: 100;
+}
+
+.btn-submit {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding: var(--spacing-m);
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-submit:hover {
+    background: #ee5555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   レスポンシブ（タブレット以上）
+======================================== */
+@media (min-width: 768px) {
+    .container {
+        padding: var(--spacing-xl);
+    }
+    
+    .type-selector {
+        gap: var(--spacing-l);
+    }
+    
+    .checkbox-group,
+    .radio-group {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
